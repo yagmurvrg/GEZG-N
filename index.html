@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEZGİN | Keşfetmenin Keyfi</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .gezgin-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            height: 430px;
+            margin: 25px auto 40px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #183d32;
+        }
+
+        .gezgin-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .gezgin-slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        .gezgin-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gezgin-slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(10, 30, 23, 0.85) 0%,
+                rgba(10, 30, 23, 0.55) 45%,
+                rgba(10, 30, 23, 0.05) 100%
+            );
+        }
+
+        .gezgin-campaign-content {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            max-width: 520px;
+            color: white;
+        }
+
+        .gezgin-campaign-content span {
+            display: block;
+            color: #d8bd85;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .gezgin-campaign-content h2 {
+            color: white;
+            font-size: clamp(27px, 4vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .gezgin-campaign-content p {
+            color: #f2f0e9;
+            font-size: 16px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .gezgin-campaign-content a {
+            display: inline-block;
+            padding: 14px 27px;
+            background: #c5a66b;
+            color: #183d32;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .gezgin-campaign-content a:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .gezgin-slider-arrow {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.85);
+            color: #183d32;
+            font-size: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gezgin-slider-arrow:hover {
+            background: #c5a66b;
+        }
+
+        .gezgin-prev {
+            left: 20px;
+        }
+
+        .gezgin-next {
+            right: 20px;
+        }
+
+        .gezgin-slider-dots {
+            position: absolute;
+            z-index: 6;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .gezgin-dot {
+            width: 11px;
+            height: 11px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .gezgin-dot.active {
+            background: #c5a66b;
+            width: 28px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .gezgin-slider {
+                height: 390px;
+                margin: 20px 0 25px;
+                border-radius: 10px;
+            }
+
+            .gezgin-slide img {
+                object-position: center;
+            }
+
+            .gezgin-campaign-content {
+                left: 9%;
+                right: 9%;
+                max-width: none;
+            }
+
+            .gezgin-campaign-content h2 {
+                font-size: 29px;
+            }
+
+            .gezgin-campaign-content p {
+                font-size: 14px;
+            }
+
+            .gezgin-slider-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+            }
+
+            .gezgin-prev {
+                left: 8px;
+            }
+
+            .gezgin-next {
+                right: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="GEZGİN Logo">
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html" class="active">Ana Sayfa</a>
+        <a href="urunler.html">Ürünler</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="yorumlar.html">Yorumlar</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="sss.html">SSS</a>
+    </nav>
+
+    <a href="sepet.html" class="cart-link">
+        🛒 Sepetim
+        <span id="cart-count">0</span>
+    </a>
+
+</header>
+
+
+<main>
+
+    <!-- GEZGİN KAMPANYA SLIDER -->
+
+    <section class="gezgin-slider" id="gezginSlider">
+
+        <div class="gezgin-slide active">
+
+            <img src="images/kampanya1.png"
+                 alt="GEZGİN kamp ve doğa koleksiyonu">
+
+            <div class="gezgin-campaign-content">
+                <span>GEZGİN OUTDOOR</span>
+
+                <h2>Doğanın Çağrısına Kulak Ver!</h2>
+
+                <p>
+                    Yeni maceralara GEZGİN ile hazırlan.
+                    Doğayı keşfetmenin keyfini yaşa.
+                </p>
+
+                <a href="urunler.html">Ürünleri Keşfet →</a>
+            </div>
+
+        </div>
+
+
+        <div class="gezgin-slide">
+
+            <img src="images/kampanya2.png"
+                 alt="GEZGİN premium seyahat koleksiyonu">
+
+            <div class="gezgin-campaign-content">
+                <span>SEYAHATİN KONFORLU HALİ</span>
+
+                <h2>Yolculuğun Tadını Çıkar!</h2>
+
+                <p>
+                    Seyahat çantaları, termoslar ve
+                    düzenleyicilerle konforu yanında taşı.
+                </p>
+
+                <a href="urunler.html">Ürünleri İncele →</a>
+            </div>
+
+        </div>
+
+
+        <div class="gezgin-slide">
+
+            <img src="images/kampanya3.png"
+                 alt="GEZGİN outdoor macera koleksiyonu">
+
+            <div class="gezgin-campaign-content">
+                <span>GEZGİN PREMIUM KOLEKSİYONU</span>
+
+                <h2>Yeni Rotalar Seni Bekliyor!</h2>
+
+                <p>
+                    Maceraya hazırlan, yeni yerler keşfet
+                    ve unutulmaz anılar biriktir.
+                </p>
+
+                <a href="urunler.html">Koleksiyonu Gör →</a>
+            </div>
+
+        </div>
+
+
+        <button class="gezgin-slider-arrow gezgin-prev"
+                type="button"
+                aria-label="Önceki görsel"
+                onclick="gezginChangeSlide(-1)">
+            ‹
+        </button>
+
+        <button class="gezgin-slider-arrow gezgin-next"
+                type="button"
+                aria-label="Sonraki görsel"
+                onclick="gezginChangeSlide(1)">
+            ›
+        </button>
+
+
+        <div class="gezgin-slider-dots">
+
+            <button class="gezgin-dot active"
+                    type="button"
+                    aria-label="Birinci görsel"
+                    onclick="gezginGoToSlide(0)">
+            </button>
+
+            <button class="gezgin-dot"
+                    type="button"
+                    aria-label="İkinci görsel"
+                    onclick="gezginGoToSlide(1)">
+            </button>
+
+            <button class="gezgin-dot"
+                    type="button"
+                    aria-label="Üçüncü görsel"
+                    onclick="gezginGoToSlide(2)">
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ANA KARŞILAMA ALANI -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                GEZGİN PREMIUM KOLEKSİYONU
+            </span>
+
+            <h1>
+                Keşfetmenin Keyfi,<br>
+                Yolculuğun Konforu.
+            </h1>
+
+            <p>
+                Yeni rotalar, unutulmaz anılar ve konforlu yolculuklar...
+                Her maceranda GEZGİN yanında.
+            </p>
+
+            <div class="discount-box">
+                <strong>GEZGİN İLE YENİ MACERALARA!</strong>
+                <span>Kaliteli seyahat ve outdoor ürünlerini keşfet.</span>
+            </div>
+
+            <a href="urunler.html" class="hero-button">
+                Koleksiyonu Keşfet →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ÖNE ÇIKAN ÜRÜNLER -->
+
+    <section class="featured-section">
+
+        <div class="section-heading">
+            <span>GEZGİN KOLEKSİYONU</span>
+            <h2>Öne Çıkan Ürünler</h2>
+            <p>
+                Seyahat ve doğa deneyimin için özenle tasarlanan ürünler.
+            </p>
+        </div>
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=1">
+                    <img src="images/cadirsiyah.png" alt="Kamp Çadırı">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">KAMP EKİPMANLARI</span>
+                    <h3>StormGuard Kamp Çadırı</h3>
+                    <p class="product-price">7.990 TL</p>
+                    <a href="urun-detay.html?id=1" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=2">
+                    <img src="images/yastikyesil.png" alt="Boyun Yastığı">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">SEYAHAT KONFORU</span>
+                    <h3>Comfort Neck Boyun Yastığı</h3>
+                    <p class="product-price">790 TL</p>
+                    <a href="urun-detay.html?id=2" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=3">
+                    <img src="images/tulumyesil.png" alt="Uyku Tulumu">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">KAMP EKİPMANLARI</span>
+                    <h3>ThermoSleep Uyku Tulumu</h3>
+                    <p class="product-price">3.290 TL</p>
+                    <a href="urun-detay.html?id=3" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=4">
+                    <img src="images/sandalyelacivert.png" alt="Kamp Sandalyesi">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">OUTDOOR YAŞAM</span>
+                    <h3>Adventure Kamp Sandalyesi</h3>
+                    <p class="product-price">2.790 TL</p>
+                    <a href="urun-detay.html?id=4" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=5">
+                    <img src="images/valizduzenleyicisiyah.png" alt="Valiz Düzenleyici">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">SEYAHAT DÜZENLEYİCİLERİ</span>
+                    <h3>Premium Valiz Düzenleyici</h3>
+                    <p class="product-price">699 TL</p>
+                    <a href="urun-detay.html?id=5" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=6">
+                    <img src="images/seyahatcantasisiyah.png" alt="Seyahat Çantası">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">SEYAHAT ÇANTALARI</span>
+                    <h3>Premium Seyahat Çantası</h3>
+                    <p class="product-price">1.999 TL</p>
+                    <a href="urun-detay.html?id=6" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=7">
+                    <img src="images/termossiyah.png" alt="Termos">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">SEYAHAT AKSESUARLARI</span>
+                    <h3>ThermoPro Premium Termos</h3>
+                    <p class="product-price">1.499 TL</p>
+                    <a href="urun-detay.html?id=7" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <a href="urun-detay.html?id=10">
+                    <img src="images/sirtcantasiyesil.png" alt="Sırt Çantası">
+                </a>
+                <div class="product-info">
+                    <span class="product-category">SEYAHAT ÇANTALARI</span>
+                    <h3>AdventurePro Sırt Çantası</h3>
+                    <p class="product-price">2.499 TL</p>
+                    <a href="urun-detay.html?id=10" class="product-button">Ürünü İncele</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="all-products">
+            <a href="urunler.html">Tüm 12 Ürünü Gör →</a>
+        </div>
+
+    </section>
+
+
+    <!-- MARKA TANITIM ALANI -->
+
+    <section class="about-section">
+
+        <div class="about-content">
+
+            <span>GEZGİN YAŞAM TARZI</span>
+
+            <h2>Her Yolculuk Yeni Bir Hikâyedir.</h2>
+
+            <p>
+                GEZGİN, seyahat ve outdoor yaşamını daha konforlu
+                hâle getirmek amacıyla tasarlanmış ürün koleksiyonunu
+                bir araya getirir.
+            </p>
+
+            <a href="hakkimizda.html" class="product-button">
+                Bizi Tanıyın
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- GÜVEN VE KALİTE ALANI -->
+
+    <section class="featured-section">
+
+        <div class="section-heading">
+            <span>GEZGİN STANDARTLARI</span>
+            <h2>Her Detayda Konfor</h2>
+            <p>
+                Seyahat deneyimini kolaylaştıran tasarım anlayışı.
+            </p>
+        </div>
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Kaliteli Tasarım</h3>
+                    <p>Kullanışlılık ve estetik bir arada.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Konforlu Yolculuk</h3>
+                    <p>Yolculuklarını daha keyifli hâle getiren ürünler.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Pratik Kullanım</h3>
+                    <p>Günlük yaşam ve seyahat için işlevsel tasarımlar.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Outdoor Yaşam</h3>
+                    <p>Doğayı keşfetmek isteyenler için ürün seçenekleri.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <h2>GEZGİN</h2>
+            <p>Keşfetmenin Keyfi, Yolculuğun Konforu.</p>
+        </div>
+
+
+        <div class="footer-links">
+            <h3>Hızlı Bağlantılar</h3>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="urunler.html">Ürünler</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="yorumlar.html">Yorumlar</a>
+            <a href="sss.html">SSS</a>
+        </div>
+
+
+        <div class="footer-contact">
+            <h3>İletişim</h3>
+            <p>E-posta: info@gezgin.com</p>
+            <p>Web: GEZGİN Outdoor</p>
+            <a href="iletisim.html">Bize Ulaşın</a>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+        <p>© 2026 GEZGİN. Tüm hakları saklıdır.</p>
+
+        <p>
+            Bu web sitesi e-ticaret dersi kapsamında hazırlanmış
+            eğitim amaçlı bir projedir. Gerçek satış ve ödeme yapılmamaktadır.
+        </p>
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+<!-- SLIDER KONTROL KODLARI -->
+
+<script>
+
+    let gezginCurrentSlide = 0;
+
+    const gezginSlides = document.querySelectorAll(".gezgin-slide");
+    const gezginDots = document.querySelectorAll(".gezgin-dot");
+
+    let gezginAutoSlide;
+
+    function gezginShowSlide(index) {
+
+        if (gezginSlides.length === 0) return;
+
+        gezginSlides.forEach(slide => {
+            slide.classList.remove("active");
+        });
+
+        gezginDots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+
+        gezginCurrentSlide =
+            (index + gezginSlides.length) % gezginSlides.length;
+
+        gezginSlides[gezginCurrentSlide].classList.add("active");
+
+        if (gezginDots[gezginCurrentSlide]) {
+            gezginDots[gezginCurrentSlide].classList.add("active");
+        }
+    }
+
+    function gezginChangeSlide(direction) {
+        gezginShowSlide(gezginCurrentSlide + direction);
+        gezginRestartAutoSlide();
+    }
+
+    function gezginGoToSlide(index) {
+        gezginShowSlide(index);
+        gezginRestartAutoSlide();
+    }
+
+    function gezginStartAutoSlide() {
+
+        gezginAutoSlide = setInterval(() => {
+            gezginShowSlide(gezginCurrentSlide + 1);
+        }, 5000);
+
+    }
+
+    function gezginRestartAutoSlide() {
+        clearInterval(gezginAutoSlide);
+        gezginStartAutoSlide();
+    }
+
+    gezginStartAutoSlide();
+
+</script>
+
+</body>
+</html>

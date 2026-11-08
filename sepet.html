@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GEZGİN alışveriş sepetiniz.">
+    <title>Alışveriş Sepetim | GEZGİN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="GEZGİN Logo">
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="urunler.html">Ürünler</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="yorumlar.html">Yorumlar</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="sss.html">SSS</a>
+    </nav>
+
+    <a href="sepet.html" class="cart-link">
+        🛒 Sepetim <span id="cart-count">0</span>
+    </a>
+
+</header>
+
+<main class="cart-section">
+
+    <div class="section-heading">
+        <span>GEZGİN OUTDOOR</span>
+        <h2>Alışveriş Sepetim</h2>
+        <p>Seçtiğiniz ürünleri ve sipariş özetinizi buradan inceleyebilirsiniz.</p>
+    </div>
+
+    <div class="cart-layout" style="
+        display:grid;
+        grid-template-columns:minmax(0, 1.7fr) minmax(280px, 0.8fr);
+        gap:30px;
+        align-items:start;
+    ">
+
+        <!-- SEPETTEKİ ÜRÜNLER -->
+
+        <section class="cart-products">
+
+            <div style="
+                background:#f7f5ef;
+                padding:20px;
+                border-radius:6px;
+                margin-bottom:20px;
+            ">
+
+                <h3 style="color:#183d32; margin-bottom:5px;">
+                    Sepetinizdeki Ürünler
+                </h3>
+
+                <p style="color:#777; font-size:13px;">
+                    Ürün miktarlarını değiştirebilir veya ürünleri sepetinizden kaldırabilirsiniz.
+                </p>
+
+            </div>
+
+            <div id="cart-items"></div>
+
+        </section>
+
+        <!-- SİPARİŞ ÖZETİ -->
+
+        <aside class="cart-summary">
+
+            <h3 style="margin-bottom:20px;">Sipariş Özeti</h3>
+
+            <div class="summary-row">
+                <span>Ara Toplam</span>
+                <strong id="cart-subtotal">0 TL</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Kargo</span>
+                <strong>Ücretsiz</strong>
+            </div>
+
+            <hr style="margin:18px 0; border:0; border-top:1px solid #e8e5dc;">
+
+            <div class="summary-row total-row">
+                <span>Genel Toplam</span>
+                <strong id="cart-total">0 TL</strong>
+            </div>
+
+            <button
+                class="product-button checkout-button"
+                style="width:100%; margin-top:22px;"
+                onclick="alert('GEZGİN eğitim amaçlı bir e-ticaret projesidir. Gerçek sipariş ve ödeme işlemi yapılmamaktadır.')">
+
+                Siparişi Tamamla
+
+            </button>
+
+            <a href="urunler.html"
+               class="continue-shopping"
+               style="
+                   display:block;
+                   text-align:center;
+                   color:#183d32;
+                   font-weight:600;
+                   font-size:13px;
+                   margin-top:20px;
+               ">
+
+                ← Alışverişe Devam Et
+
+            </a>
+
+            <div style="
+                background:#edf2ed;
+                padding:15px;
+                border-radius:5px;
+                margin-top:25px;
+            ">
+
+                <p style="color:#183d32; font-size:12px; font-weight:600;">
+                    ✓ Güvenli alışveriş tasarımı
+                </p>
+
+                <p style="color:#777; font-size:11px; margin-top:7px;">
+                    Bu web sitesi eğitim amaçlı hazırlanmıştır.
+                    Gerçek ödeme alınmamaktadır.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <h2>GEZGİN</h2>
+            <p>Keşfetmenin Keyfi, Yolculuğun Konforu.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Hızlı Bağlantılar</h3>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="urunler.html">Ürünler</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="yorumlar.html">Yorumlar</a>
+            <a href="sss.html">SSS</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>İletişim</h3>
+            <p>E-posta: info@gezgin.com</p>
+            <p>GEZGİN Outdoor</p>
+            <a href="iletisim.html">İletişim Sayfası</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 GEZGİN. Tüm hakları saklıdır.</p>
+        <p>Eğitim amaçlı e-ticaret projesidir. Gerçek satış ve ödeme yapılmamaktadır.</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

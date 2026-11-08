@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GEZGİN ürün detayları. Seyahat ve outdoor ürünlerini keşfedin.">
+    <title>Ürün Detayı | GEZGİN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="GEZGİN Logo">
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="urunler.html">Ürünler</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="yorumlar.html">Yorumlar</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="sss.html">SSS</a>
+    </nav>
+
+    <a href="sepet.html" class="cart-link">
+        🛒 Sepetim <span id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="detail-page">
+
+    <div class="detail-breadcrumb">
+        <a href="index.html">Ana Sayfa</a>
+        <span>/</span>
+        <a href="urunler.html">Ürünler</a>
+        <span>/</span>
+        <span>Ürün Detayı</span>
+    </div>
+
+    <section class="product-detail">
+
+        <div class="detail-gallery">
+
+            <div class="main-product-image" id="zoom-container">
+                <img id="detail-image" src="" alt="GEZGİN ürün görseli">
+            </div>
+
+            <div class="thumbnail-list" id="thumbnail-list"></div>
+
+            <p class="zoom-info">
+                🔍 Yakınlaştırmak için görselin üzerine gelin.
+            </p>
+
+        </div>
+
+        <div class="detail-info">
+
+            <span class="product-category" id="detail-category">
+                GEZGİN KOLEKSİYONU
+            </span>
+
+            <h1 id="detail-name">Ürün Adı</h1>
+
+            <div class="detail-rating">
+                <span>★★★★★</span>
+                <small id="detail-rating-text">
+                    Örnek değerlendirme
+                </small>
+            </div>
+
+            <p class="detail-price" id="detail-price"></p>
+
+            <p class="detail-description" id="detail-description"></p>
+
+            <div class="detail-color-area">
+                <label for="detail-color">Renk Seçeneği</label>
+                <select id="detail-color">
+                </select>
+            </div>
+
+            <div class="detail-actions">
+                <button id="detail-add-button" class="product-button">
+                    🛒 Sepete Ekle
+                </button>
+            </div>
+
+            <div class="detail-delivery">
+                <p>✓ Konfor odaklı ürün tasarımları</p>
+                <p>✓ Farklı renk seçenekleri</p>
+                <p>✓ Kullanışlı ve modern tasarım</p>
+                <p>✓ Eğitim amaçlı ürün kataloğu</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="product-information">
+
+        <div class="section-heading">
+            <span>ÜRÜNÜ YAKINDAN TANIYIN</span>
+            <h2>Ürün Özellikleri</h2>
+            <p>Ürünün tasarım özelliklerini ve detaylarını inceleyin.</p>
+        </div>
+
+        <div id="detail-features" class="features-table"></div>
+
+        <p class="review-disclaimer">
+            Ürün özellikleri eğitim projesi kapsamında hazırlanmış
+            temsili ürün bilgileridir.
+        </p>
+
+    </section>
+
+    <section class="product-reviews">
+
+        <div class="section-heading">
+            <span>KULLANICI DENEYİMLERİ</span>
+            <h2>Ürün Hakkındaki Yorumlar</h2>
+            <p>Ürüne ait örnek değerlendirmeler.</p>
+        </div>
+
+        <div id="detail-reviews" class="reviews-grid"></div>
+
+        <p class="review-disclaimer">
+            Bu sayfadaki yorumlar eğitim projesi kapsamında hazırlanmış
+            temsili değerlendirmelerdir. Gerçek müşteri yorumları değildir.
+        </p>
+
+    </section>
+
+    <div class="detail-back-link">
+        <a href="urunler.html">← Tüm Ürünlere Geri Dön</a>
+    </div>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <h2>GEZGİN</h2>
+            <p>Keşfetmenin Keyfi, Yolculuğun Konforu.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Hızlı Bağlantılar</h3>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="urunler.html">Ürünler</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="yorumlar.html">Yorumlar</a>
+            <a href="sss.html">Sıkça Sorulan Sorular</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>İletişim</h3>
+            <p>E-posta: info@gezgin.com</p>
+            <p>GEZGİN Outdoor</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 GEZGİN. Tüm hakları saklıdır.</p>
+        <p>Eğitim amaçlı e-ticaret projesidir. Gerçek satış yapılmamaktadır.</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

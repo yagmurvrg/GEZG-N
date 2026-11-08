@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünlerimiz | GEZGİN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="GEZGİN Logo">
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="urunler.html" class="active">Ürünler</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="yorumlar.html">Yorumlar</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="sss.html">SSS</a>
+    </nav>
+
+    <a href="sepet.html" class="cart-link">
+        🛒 Sepetim
+        <span id="cart-count">0</span>
+    </a>
+
+</header>
+
+
+<main>
+
+    <!-- ÜRÜNLER SAYFASI KARŞILAMA ALANI -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <span class="hero-label">GEZGİN PREMIUM KOLEKSİYONU</span>
+
+            <h1>Doğayı Keşfet,<br>Konforu Yanında Taşı.</h1>
+
+            <p>
+                Kamp ve seyahat deneyimini güzelleştirecek
+                ürün koleksiyonumuzu keşfet.
+            </p>
+
+            <div class="discount-box">
+                <strong>GEZGİN KOLEKSİYONU</strong>
+                <span>Her yolculuk için özenle seçilmiş ürünler.</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ÜRÜN KATALOĞU -->
+
+    <section class="featured-section">
+
+        <div class="section-heading">
+
+            <span>GEZGİN KOLEKSİYONU</span>
+
+            <h2>Tüm Ürünlerimiz</h2>
+
+            <p>
+                Sana uygun ürünü bul, renk seçeneklerini keşfet
+                ve yolculuğuna hazırlan.
+            </p>
+
+        </div>
+
+
+        <!-- ARAMA VE FİLTRELEME ALANI -->
+
+        <div class="product-controls">
+
+            <div class="search-box">
+
+                <label for="product-search">Ürün Ara</label>
+
+                <input
+                    type="search"
+                    id="product-search"
+                    placeholder="Ürün adı yazın..."
+                >
+
+            </div>
+
+
+            <div class="filter-box">
+
+                <label for="category-filter">Kategori</label>
+
+                <select id="category-filter">
+
+                    <option value="all">Tüm Kategoriler</option>
+                    <option value="kamp">Kamp Ekipmanları</option>
+                    <option value="seyahat">Seyahat Ürünleri</option>
+                    <option value="outdoor">Outdoor Yaşam</option>
+                    <option value="aksesuar">Seyahat Aksesuarları</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="sort-box">
+
+                <label for="sort-filter">Sıralama</label>
+
+                <select id="sort-filter">
+
+                    <option value="default">Varsayılan Sıralama</option>
+                    <option value="low-high">Fiyat: Artan</option>
+                    <option value="high-low">Fiyat: Azalan</option>
+                    <option value="az">İsim: A - Z</option>
+                    <option value="za">İsim: Z - A</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ÜRÜN SAYISI -->
+
+        <div class="product-results">
+
+            <p id="product-result-count">
+                Ürünler yükleniyor...
+            </p>
+
+        </div>
+
+
+        <!-- ÜRÜNLER JAVASCRIPT İLE YÜKLENECEK -->
+
+        <div class="product-grid" id="product-list">
+
+            <!-- Ürün kartları JavaScript tarafından oluşturulacak. -->
+
+        </div>
+
+
+        <!-- ÜRÜN BULUNAMADI MESAJI -->
+
+        <div id="no-products" class="no-products" style="display: none;">
+
+            <h3>Aradığın ürün bulunamadı.</h3>
+
+            <p>
+                Farklı bir ürün adı veya kategori deneyebilirsin.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ALT BİLGİ -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <h2>GEZGİN</h2>
+
+            <p>
+                Keşfetmenin Keyfi, Yolculuğun Konforu.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Hızlı Bağlantılar</h3>
+
+            <a href="index.html">Ana Sayfa</a>
+            <a href="urunler.html">Ürünler</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="yorumlar.html">Yorumlar</a>
+            <a href="sss.html">SSS</a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3>İletişim</h3>
+
+            <p>E-posta: info@gezgin.com</p>
+
+            <a href="iletisim.html">Bize Ulaşın</a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 GEZGİN. Tüm hakları saklıdır.
+        </p>
+
+        <p>
+            Bu web sitesi e-ticaret dersi kapsamında hazırlanmış
+            eğitim amaçlı bir projedir. Gerçek satış ve ödeme yapılmamaktadır.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
