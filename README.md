@@ -1,0 +1,2 @@
+# GEZG-N
+GEZGİN E-TİCARET SİTESİ
